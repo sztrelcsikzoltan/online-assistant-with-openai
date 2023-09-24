@@ -22,9 +22,10 @@ namespace SmartPhoneTechAdvisor.Pages
 
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             _logger.LogInformation($"OnPost() called {PhoneName1}, {PhoneName2}");
+            return RedirectToPage("CompareTable", new { Phones = new[] { PhoneName1, PhoneName2 } });
         }
 
     }
