@@ -1,7 +1,11 @@
+using Refit;
+using SmartPhoneTechAdvisor.HttpClients;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddRefitClient<IAiAdvisor>().ConfigureHttpClient(c => c.BaseAddress = new Uri("https://smarttechadvisor.azurewebsites.net/api"));
 
 var app = builder.Build();
 
